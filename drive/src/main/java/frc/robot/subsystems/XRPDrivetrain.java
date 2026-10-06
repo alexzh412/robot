@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.xrp.XRPMotor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -39,13 +40,20 @@ public class XRPDrivetrain extends SubsystemBase {
 
     // Invert right side since motor is flipped
     m_rightMotor.setInverted(true);
+
+    
+    
+  }
+
+  public double getAverageDistanceInch(){
+    return (getLeftDistanceInch()+getRightDistanceInch()) / 2;
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
     m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
   }
 
-  public void resetEncoders() {
+  public static void resetEncoders() {
     m_leftEncoder.reset();
     m_rightEncoder.reset();
   }
@@ -58,9 +66,11 @@ public class XRPDrivetrain extends SubsystemBase {
     return m_rightEncoder.getDistance();
   }
 
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Average Distance", getAverageDistanceInch());
   }
 
   @Override
