@@ -45,6 +45,10 @@ public class XRPDrivetrain extends SubsystemBase {
     
   }
 
+  public void XRPGyro () {
+    
+  }
+
   public double getAverageDistanceInch(){
     return (getLeftDistanceInch()+getRightDistanceInch()) / 2;
   }
@@ -77,4 +81,6 @@ public class XRPDrivetrain extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
+
+
 }
