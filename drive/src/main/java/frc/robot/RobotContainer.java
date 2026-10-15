@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.driveForward;
+import frc.robot.commands.rotate;
 import frc.robot.subsystems.XRPDrivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -20,6 +21,8 @@ public class RobotContainer {
   private final XRPDrivetrain m_xrpDrivetrain = new XRPDrivetrain();
 
   private final driveForward m_autoCommand = new driveForward(m_xrpDrivetrain);
+  private final rotate m_autoCommand1 = new rotate(m_xrpDrivetrain);
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
