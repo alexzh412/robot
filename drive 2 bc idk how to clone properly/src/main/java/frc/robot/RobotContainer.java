@@ -21,7 +21,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final XRPDrivetrain m_xrpDrivetrain = new XRPDrivetrain();
 
-  private final SequentialCommandGroup m_autoCommand = new driveForward(m_xrpDrivetrain).andThen(new rotate(m_xrpDrivetrain));
+  private final SequentialCommandGroup m_autoCommand = new driveForward(m_xrpDrivetrain).andThen(new rotate(m_xrpDrivetrain).andThen(new driveForward(m_xrpDrivetrain)));
   
 
 
